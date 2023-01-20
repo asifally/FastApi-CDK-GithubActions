@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "animequotegenerator-cdk-ci-cd"
+version = "0.1.0"
+description = ""
+authors = ["Asif Ally <asifally004@gmail.com>"]
+readme = "README.md"
+packages = [{include = "animequotegenerator_cdk_ci_cd"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+aws-cdk-lib = "^2.60.0"
+fastapi = "^0.89.1"
+mangum = "^0.17.0"
+uvicorn = "^0.20.0"
+requests = "^2.28.2"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.2.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
