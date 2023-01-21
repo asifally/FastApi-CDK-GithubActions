@@ -18,21 +18,25 @@ jobs:
           python-version: 3.8
 
       - name: Install Poetry
-        uses: dschep/install-poetry-action@v1.2
+        uses: snok/install-poetry@v1
 
-      - name: Cache Poetry virtual env
+      - name: Cache Poetry virtualenv
         uses: actions/cache@v1
         id: cache
-        with: 
+        with:
           path: ~/.virtualenvs
-          key: poetry-${{ hashFiles('**/poetry.com') }}
+          key: poetry-${{ hashFiles('**/poetry.lock') }}
           restore-keys: |
-            poetry-${{ hashFiles('**poetry.lock') }}
+            poetry-${{ hashFiles('**/poetry.lock') }}
 
-      - name: Install Dependencies
+      - name: Set Poetry config
         run: |
           poetry config settings.virtualenvs.in-project false
           poetry config settings.virtualenvs.path ~/.virtualenvs
+
+      - name: Install Dependencies
+        run: poetry install
+        if: steps.cache.outputs.cache-hit != 'true'
 
       - name: Code Quality
         run: poetry run black . --check
