@@ -5,6 +5,7 @@ from requests import HTTPError
 
 app = FastAPI()
 
+
 @app.get("/")
 def get_quote():
     try:
@@ -16,16 +17,10 @@ def get_quote():
         print(f"Anime: {anime}")
         print(f"Character: {character}")
         print(f"Quote: {quote}")
-        return { 
-            "statusCode": 200,
-            "headers": {},
-            "body": res
-            }
+        return {"statusCode": 200, "headers": {}, "body": res}
     except HTTPError as e:
-        return {
-            "statusCode": 404,
-            "error": e
-        }
+        return {"statusCode": 404, "error": e}
+
 
 handler = Mangum(app)
 

@@ -9,10 +9,10 @@ packages = [{include = "animequotegenerator_cdk_ci_cd"}]
 [tool.poetry.dependencies]
 python = "^3.8"
 aws-cdk-lib = "^2.60.0"
-fastapi = "^0.89.1"
 mangum = "^0.17.0"
 uvicorn = "^0.20.0"
 requests = "^2.28.2"
+fastapi = "^0.89.1"
 
 
 [tool.poetry.group.dev.dependencies]
