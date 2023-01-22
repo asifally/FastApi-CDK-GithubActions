@@ -8,15 +8,15 @@ from aws_cdk import (
 )
 
 
-class AnimeQuoteGeneratorService(Construct):
+class AppService(Construct):
     def __init__(self, scope: Construct, id: builtins.str) -> None:
         super().__init__(scope, id)
 
         handler = _alambda.PythonFunction(
             self,
-            "AnimeQuoteGeneratorHandler",
+            "AppHandler",
             runtime=lambda_.Runtime.PYTHON_3_8,
-            entry="./resources",
+            entry="./src/app",
             index="anime_quote_generator.py",
             handler="handler",
         )

@@ -3,15 +3,15 @@ import os
 
 import aws_cdk as cdk
 
-from anime_quote_generator_cdk_ci_cd.anime_quote_generator_cdk_ci_cd_stack import (
-    AnimeQuoteGeneratorCdkCiCdStack,
+from cdk.cdk_stack import (
+    AppStack,
 )
 
 
 app = cdk.App()
-AnimeQuoteGeneratorCdkCiCdStack(
+AppStack(
     app,
-    "AnimeQuoteGeneratorCdkCiCdStack",
+    "AppStack",
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
