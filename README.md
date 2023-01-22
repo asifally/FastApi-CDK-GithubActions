@@ -1,40 +1,27 @@
 
-# Welcome to your CDK Python project!
+# A POC using FastAPI, AWS CDK, and Github Actions
 
-This is a blank project for CDK development with Python.
+This is a practice project aimed to learn how to AWS CDK and Github Actions. A simple api created with FastAPI is at it's core.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+The external packages used in this project can be found in the pyproject.toml file. The requirements.txt file in the root directory are the aws cdk dependencies. The requirements.txt in the src/app directory is used to specify the external python package dependencies to install into the image upon deployment.
 
-To manually create a virtualenv on MacOS and Linux:
-
-```
-$ python -m venv .venv
-```
-
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
+The below command will install the aws cdk dependencies.
 ```
 $ pip install -r requirements.txt
+```
+
+After that is complete, install the external python dependencies.
+
+```
+$ poetry install
+```
+
+Active the virtual environment with the below command:
+
+```
+% poetry shell
 ```
 
 At this point you can now synthesize the CloudFormation template for this code.
@@ -54,5 +41,3 @@ command.
  * `cdk deploy`      deploy this stack to your default AWS account/region
  * `cdk diff`        compare deployed stack with current state
  * `cdk docs`        open CDK documentation
-
-Enjoy!
